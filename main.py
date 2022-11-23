@@ -10,6 +10,7 @@ def tipps_chur():
     return 'tipps_chur'
 
 
+
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
 
