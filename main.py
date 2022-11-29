@@ -7,7 +7,12 @@ app = Flask("tipps_chur")
 @app.route('/')
 def tipps_chur():
     # Rendern des index.html Templates, für das Anzeigen der index.html Page.
-    return 'tipps_chur'
+    return render_template("index.html")
+
+@app.route('/neu')
+def neue_idee():
+    # Rendern des index.html Templates, für das Anzeigen der index.html Page.
+    return render_template("neue_idee.html")
 
 
 
