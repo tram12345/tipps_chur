@@ -1,4 +1,44 @@
 {% include "Navigation.html" %}
-    Test
+    Neue Ideen generieren, Bitte Kategorien auswählen<br/>
+    <form>
+<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+  <option selected>maximale Gruppengrösse auswählen</option>
+  <option value="1">1-4</option>
+  <option value="2">5-10</option>
+  <option value="3">10+</option>
+</select>
+        <br/>
+<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+  <option selected>Budget auswählen</option>
+  <option value="1">0 - 20 CHF</option>
+  <option value="2">20 - 100 CHF</option>
+  <option value="3">100+ CHF</option>
+</select>
+                <br/>
+<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+  <option selected>Saison</option>
+  <option value="1">Winter</option>
+  <option value="2">Sommer</option>
+  <option value="3">Frühling</option>
+    <option value="4">Herbst</option>
+      <option value="5">egal</option>
+</select>
+        <br/>
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+  <option selected>Ort</option>
+  <option value="1">drinnen</option>
+  <option value="2">draussen</option>
+</select>
+        <br/>
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+  <option selected>Bewegungsdrang</option>
+  <option value="1">extrem</option>
+  <option value="2">vorhanden</option>
+  <option value="3">wenig</option>
+    <option value="4">nicht nötig</option>
+</select>
+        <br/>
+  <button type="submit" class="btn btn-secondary">neue Ideen generieren</button>
+</form>
     </body>
 </html>
