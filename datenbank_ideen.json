@@ -1,11 +1,106 @@
-{"Wandern": {"name": "Wandern", "gruppengroesse": "10+", "budget": "0 - 20 CHF", "Saison": "egal", "Ort": "draussen", "Bewegungsdrang": "extrem"},
-  "Krimi-Trail": {"name": "Krimi-Trail Chur", "gruppengroesse": "1-4", "budget": "20 - 100 CHF", "Saison": "egal", "Ort": "draussen", "Bewegungsdrang": "vorhanden"},
-  "Tamina Therme": {"name": "Tamina Therme Bad Ragaz", "gruppengroesse": "1-4", "budget": "20 - 100 CHF", "Saison": "egal", "Ort": "drinnen", "Bewegungsdrang": "nicht nötig"},
-  "Konzerte Werkstatt Chur": {"name": "Konzerte Werkstatt Chur", "gruppengroesse": "10+", "budget": "20 - 100 CHF", "Saison": "egal", "Ort": "drinnen", "Bewegungsdrang": "wenig"},
-  "Christchindlimarkt": {"name": "Christchindlimarkt Chur", "gruppengroesse": "10+", "budget": "0 - 20 CHF", "Saison": "Winter", "Ort": "draussen", "Bewegungsdrang": "wenig"},
-  "Urban Golf": {"name": "Urban Golf Chur", "gruppengroesse": "5-10", "budget": "0 - 20 CHF", "Saison": "Sommer", "Ort": "draussen", "Bewegungsdrang": "vorhanden"},
-  "Skifahren": {"name": "Skifahren Arosa", "gruppengroesse": "1-4", "budget": "20 - 100 CHF", "Saison": "Winter", "Ort": "draussen", "Bewegungsdrang": "extrem"},
-  "Big Air": {"name": "Big Air Chur", "gruppengroesse": "1-4", "budget": "100+ CHF", "Saison": "Herbst", "Ort": "draussen", "Bewegungsdrang": "vorhanden"},
-  "Bündner Kunstmuseum": {"name": "Bündner Kunstmuseum", "gruppengroesse": "1-4", "budget": "0 - 20 CHF", "Saison": "egal", "Ort": "drinnen", "Bewegungsdrang": "nicht nötig"},
-  "Wanderung Montalin": {"name": "Wanderung Montalin", "gruppengroesse": "1-4", "budget": "0 - 20 CHF", "Saison": "Frühling", "Ort": "draussen", "Bewegungsdrang": "extrem"}
+{
+    "Wandern": {
+        "name": "Wandern",
+        "gruppengroesse": "10+",
+        "budget": "0 - 20 CHF",
+        "Saison": "egal",
+        "Ort": "draussen",
+        "Bewegungsdrang": "extrem"
+    },
+    "Krimi-Trail": {
+        "name": "Krimi-Trail Chur",
+        "gruppengroesse": "1-4",
+        "budget": "20 - 100 CHF",
+        "Saison": "egal",
+        "Ort": "draussen",
+        "Bewegungsdrang": "vorhanden"
+    },
+    "Tamina Therme": {
+        "name": "Tamina Therme Bad Ragaz",
+        "gruppengroesse": "1-4",
+        "budget": "20 - 100 CHF",
+        "Saison": "egal",
+        "Ort": "drinnen",
+        "Bewegungsdrang": "nicht n\u00c3\u00b6tig"
+    },
+    "Konzerte Werkstatt Chur": {
+        "name": "Konzerte Werkstatt Chur",
+        "gruppengroesse": "10+",
+        "budget": "20 - 100 CHF",
+        "Saison": "egal",
+        "Ort": "drinnen",
+        "Bewegungsdrang": "wenig"
+    },
+    "Christchindlimarkt": {
+        "name": "Christchindlimarkt Chur",
+        "gruppengroesse": "10+",
+        "budget": "0 - 20 CHF",
+        "Saison": "Winter",
+        "Ort": "draussen",
+        "Bewegungsdrang": "wenig"
+    },
+    "Urban Golf": {
+        "name": "Urban Golf Chur",
+        "gruppengroesse": "5-10",
+        "budget": "0 - 20 CHF",
+        "Saison": "Sommer",
+        "Ort": "draussen",
+        "Bewegungsdrang": "vorhanden"
+    },
+    "Skifahren": {
+        "name": "Skifahren Arosa",
+        "gruppengroesse": "1-4",
+        "budget": "20 - 100 CHF",
+        "Saison": "Winter",
+        "Ort": "draussen",
+        "Bewegungsdrang": "extrem"
+    },
+    "Big Air": {
+        "name": "Big Air Chur",
+        "gruppengroesse": "1-4",
+        "budget": "100+ CHF",
+        "Saison": "Herbst",
+        "Ort": "draussen",
+        "Bewegungsdrang": "vorhanden"
+    },
+    "B\u00c3\u00bcndner Kunstmuseum": {
+        "name": "B\u00c3\u00bcndner Kunstmuseum",
+        "gruppengroesse": "1-4",
+        "budget": "0 - 20 CHF",
+        "Saison": "egal",
+        "Ort": "drinnen",
+        "Bewegungsdrang": "nicht n\u00c3\u00b6tig"
+    },
+    "Wanderung Montalin": {
+        "name": "Wanderung Montalin",
+        "gruppengroesse": "1-4",
+        "budget": "0 - 20 CHF",
+        "Saison": "Fr\u00c3\u00bchling",
+        "Ort": "draussen",
+        "Bewegungsdrang": "extrem"
+    },
+    "2022-12-06 11:23:51.596178": {
+        "name": null,
+        "budget": "Budget ausw\u00e4hlen"
+    },
+    "2022-12-06 11:23:54.464712": {
+        "name": null,
+        "budget": "Budget ausw\u00e4hlen"
+    },
+    "2022-12-06 11:23:56.084009": {
+        "name": null,
+        "budget": "Budget ausw\u00e4hlen"
+    },
+    "2022-12-06 11:23:57.125808": {
+        "name": null,
+        "budget": "Budget ausw\u00e4hlen"
+    },
+    "2022-12-06 11:49:55.609376": {
+        "name": null,
+        "budget": "Budget ausw\u00e4hlen"
+    },
+    "2022-12-06 11:53:28.003978": {
+        "name": "test2",
+        "budget": "1"
+    }
 }
