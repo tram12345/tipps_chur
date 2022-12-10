@@ -25,8 +25,7 @@ def neue_idee():
         ort = request.form['Ort']
         bewegungsdrang = request.form['Bewegungsdrang']
 
-        #hier noch alle Felder hinzufügen!!!!!
-        activity = {'name': name, 'budget': budget}
+        activity = {'name': name, 'gruppengroesse': gruppengroesse, 'budget': budget, 'saison': saison, 'ort': ort, 'bewegungsdrang': bewegungsdrang}
 
         aktivitaet_speichern(activity)
 
@@ -42,16 +41,15 @@ def speichern(datei, key, value):
     datei_inhalt[str(key)] = value
 
     # print(datei_inhalt)
-
     with open(datei, "w") as open_file:
         json.dump(datei_inhalt, open_file, indent=4)
 
 
-def aktivitaet_speichern(aktivitaet):
+def aktivitaet_speichern(activity):
     datei_name = "datenbank_ideen.json"
     zeitpunkt = datetime.now()
-    speichern(datei_name, zeitpunkt, aktivitaet)
-    return zeitpunkt, aktivitaet
+    speichern(datei_name, zeitpunkt, activity)
+    return zeitpunkt, activity
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000)

@@ -79,28 +79,12 @@
         "Ort": "draussen",
         "Bewegungsdrang": "extrem"
     },
-    "2022-12-06 11:23:51.596178": {
-        "name": null,
-        "budget": "Budget ausw\u00e4hlen"
-    },
-    "2022-12-06 11:23:54.464712": {
-        "name": null,
-        "budget": "Budget ausw\u00e4hlen"
-    },
-    "2022-12-06 11:23:56.084009": {
-        "name": null,
-        "budget": "Budget ausw\u00e4hlen"
-    },
-    "2022-12-06 11:23:57.125808": {
-        "name": null,
-        "budget": "Budget ausw\u00e4hlen"
-    },
-    "2022-12-06 11:49:55.609376": {
-        "name": null,
-        "budget": "Budget ausw\u00e4hlen"
-    },
-    "2022-12-06 11:53:28.003978": {
-        "name": "test2",
-        "budget": "1"
+    "2022-12-10 11:11:42.835923": {
+        "name": "Schlitteln",
+        "gruppengroesse": "1",
+        "budget": "3",
+        "saison": "3",
+        "ort": "2",
+        "bewegungsdrang": "1"
     }
 }
