@@ -1,13 +1,15 @@
 {% include "Navigation.html" %}
-    {% for daten in vorschlaege.values() %}
+{{vorschlaege}}
+    {% for eintrag in vorschlaege %}
         <tr>
-            <!-- Die Values des Dicts daten werden mithilfe der Keys ausgegeben. -->
-            <td>{{ daten["name"] }}</td>
-            <td>{{ daten["gruppengroesse"] }}</td>
-            <td>{{ daten["budget"] }}</td>
-            <td>{{ daten["saison"] }}</td>
-            <td>{{ daten["ort"] }}</td>
-            <td>{{ daten["bewegungsdrang"] }}</td>
+            <!-- Die Ideen von der Liste Vorschläge werden ausgegeben. -->
+            <td>{{ eintrag["name"] }}</td>
+            <td>{{ eintrag["gruppengroesse"] }}</td>
+            <td>{{ eintrag["budget"] }}</td>
+            <td>{{ eintrag["saison"] }}</td>
+            <td>{{ eintrag["ort"] }}</td>
+            <td>{{ eintrag["bewegungsdrang"] }}</td>
+        </tr>
             {% endfor %}
 </body>
 </html>

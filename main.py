@@ -20,7 +20,7 @@ def tipps_chur():
 
         vorschlaege = []
         for idee_name, idee_daten in ideen.items():
-            print(idee_name, idee_daten)
+            print(gruppengroesse_vorschlag, idee_daten["gruppengroesse"], gruppengroesse_vorschlag == idee_daten["gruppengroesse"])
             if gruppengroesse_vorschlag == idee_daten["gruppengroesse"]:
                 if budget_vorschlag == idee_daten["budget"]:
                     if saison_vorschlag == idee_daten["saison"]:
