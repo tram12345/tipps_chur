@@ -1,0 +1,13 @@
+{% include "Navigation.html" %}
+    {% for daten in vorschlaege.values() %}
+        <tr>
+            <!-- Die Values des Dicts daten werden mithilfe der Keys ausgegeben. -->
+            <td>{{ daten["name"] }}</td>
+            <td>{{ daten["gruppengroesse"] }}</td>
+            <td>{{ daten["budget"] }}</td>
+            <td>{{ daten["saison"] }}</td>
+            <td>{{ daten["ort"] }}</td>
+            <td>{{ daten["bewegungsdrang"] }}</td>
+            {% endfor %}
+</body>
+</html>

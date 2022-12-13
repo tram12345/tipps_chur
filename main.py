@@ -7,8 +7,30 @@ import json
 app = Flask("tipps_chur")
 
 
-@app.route('/', methods=["get", "post"])
+@app.route('/', methods=["GET", "POST"])
 def tipps_chur():
+    if request.method == "POST":
+        gruppengroesse_vorschlag = request.form['Gruppengroesse']
+        budget_vorschlag = request.form['Budget']
+        saison_vorschlag = request.form['Saison']
+        ort_vorschlag = request.form['Ort']
+        bewegungsdrang_vorschlag = request.form['Bewegungsdrang']
+        with open("datenbank_ideen.json") as datei:
+            ideen = json.load(datei)
+
+        vorschlaege = []
+        for idee_name, idee_daten in ideen.items():
+            print(idee_name, idee_daten)
+            if gruppengroesse_vorschlag == idee_daten["gruppengroesse"]:
+                if budget_vorschlag == idee_daten["budget"]:
+                    if saison_vorschlag == idee_daten["saison"]:
+                        if ort_vorschlag == idee_daten["ort"]:
+                            if bewegungsdrang_vorschlag == idee_daten["bewegungsdrang"]:
+                                vorschlaege.append(idee_daten)
+                                print(vorschlaege)
+
+        return render_template("vorschlaege.html", vorschlaege=vorschlaege)
+
     # Rendern des index.html Templates, für das Anzeigen der index.html Page.
     return render_template("index.html", seitentitel="neue_idee")
 
