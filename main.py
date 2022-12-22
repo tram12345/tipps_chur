@@ -73,6 +73,13 @@ def aktivitaet_speichern(activity):
     speichern(datei_name, zeitpunkt, activity)
     return zeitpunkt, activity
 
+
+
+@app.route('/auswertung', methods=["GET", "POST"])
+def auswertung():
+    return render_template("auswertung.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
 

@@ -3,81 +3,81 @@
         "name": "Wandern",
         "gruppengroesse": "10+",
         "budget": "0 - 20 CHF",
-        "Saison": "egal",
-        "Ort": "draussen",
-        "Bewegungsdrang": "extrem"
+        "saison": "egal",
+        "ort": "draussen",
+        "bewegungsdrang": "extrem"
     },
     "Krimi-Trail": {
         "name": "Krimi-Trail Chur",
         "gruppengroesse": "1-4",
         "budget": "20 - 100 CHF",
-        "Saison": "egal",
-        "Ort": "draussen",
-        "Bewegungsdrang": "vorhanden"
+        "saison": "egal",
+        "ort": "draussen",
+        "bewegungsdrang": "vorhanden"
     },
     "Tamina Therme": {
         "name": "Tamina Therme Bad Ragaz",
         "gruppengroesse": "1-4",
         "budget": "20 - 100 CHF",
-        "Saison": "egal",
-        "Ort": "drinnen",
-        "Bewegungsdrang": "nicht n\u00c3\u00b6tig"
+        "saison": "egal",
+        "ort": "drinnen",
+        "bewegungsdrang": "nicht n\u00c3\u00b6tig"
     },
     "Konzerte Werkstatt Chur": {
         "name": "Konzerte Werkstatt Chur",
         "gruppengroesse": "10+",
         "budget": "20 - 100 CHF",
-        "Saison": "egal",
-        "Ort": "drinnen",
-        "Bewegungsdrang": "wenig"
+        "saison": "egal",
+        "ort": "drinnen",
+        "bewegungsdrang": "wenig"
     },
     "Christchindlimarkt": {
         "name": "Christchindlimarkt Chur",
         "gruppengroesse": "10+",
         "budget": "0 - 20 CHF",
-        "Saison": "Winter",
-        "Ort": "draussen",
-        "Bewegungsdrang": "wenig"
+        "saison": "Winter",
+        "ort": "draussen",
+        "bewegungsdrang": "wenig"
     },
     "Urban Golf": {
         "name": "Urban Golf Chur",
         "gruppengroesse": "5-10",
         "budget": "0 - 20 CHF",
-        "Saison": "Sommer",
-        "Ort": "draussen",
-        "Bewegungsdrang": "vorhanden"
+        "saison": "Sommer",
+        "ort": "draussen",
+        "bewegungsdrang": "vorhanden"
     },
     "Skifahren": {
         "name": "Skifahren Arosa",
         "gruppengroesse": "1-4",
         "budget": "20 - 100 CHF",
-        "Saison": "Winter",
-        "Ort": "draussen",
-        "Bewegungsdrang": "extrem"
+        "saison": "Winter",
+        "ort": "draussen",
+        "bewegungsdrang": "extrem"
     },
     "Big Air": {
         "name": "Big Air Chur",
         "gruppengroesse": "1-4",
         "budget": "100+ CHF",
-        "Saison": "Herbst",
-        "Ort": "draussen",
-        "Bewegungsdrang": "vorhanden"
+        "saison": "Herbst",
+        "ort": "draussen",
+        "bewegungsdrang": "vorhanden"
     },
     "B\u00c3\u00bcndner Kunstmuseum": {
         "name": "B\u00c3\u00bcndner Kunstmuseum",
         "gruppengroesse": "1-4",
         "budget": "0 - 20 CHF",
-        "Saison": "egal",
-        "Ort": "drinnen",
-        "Bewegungsdrang": "nicht n\u00c3\u00b6tig"
+        "saison": "egal",
+        "ort": "drinnen",
+        "bewegungsdrang": "nicht n\u00c3\u00b6tig"
     },
     "Wanderung Montalin": {
         "name": "Wanderung Montalin",
         "gruppengroesse": "1-4",
         "budget": "0 - 20 CHF",
-        "Saison": "Fr\u00c3\u00bchling",
-        "Ort": "draussen",
-        "Bewegungsdrang": "extrem"
+        "saison": "Fr\u00c3\u00bchling",
+        "ort": "draussen",
+        "bewegungsdrang": "extrem"
     },
     "2022-12-10 11:11:42.835923": {
         "name": "Schlitteln",
