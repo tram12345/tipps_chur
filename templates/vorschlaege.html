@@ -1,15 +1,22 @@
 {% include "Navigation.html" %}
 {{vorschlaege}}
-    {% for eintrag in vorschlaege %}
-        <tr>
+
+    {% if vorschlaege == [] %}
+        <p>Leider gibt es für dich keine passende Vorschläge. Möchtest du eine neue Idee erfassen?</p>
+        <a href="neue_idee">Hier kannst du deine neue Idee erfassen.</a>
+    {% else %}
+            <p>Hier findest du deinen passenden Vorschlag:</p>
+            {% for eintrag in vorschlaege %}
+            <tr>
             <!-- Die Ideen von der Liste Vorschläge werden ausgegeben. -->
-            <td>{{ eintrag["name"] }}</td>
-            <td>{{ eintrag["gruppengroesse"] }}</td>
-            <td>{{ eintrag["budget"] }}</td>
-            <td>{{ eintrag["saison"] }}</td>
-            <td>{{ eintrag["ort"] }}</td>
-            <td>{{ eintrag["bewegungsdrang"] }}</td>
-        </tr>
-            {% endfor %}
+                <td>{{ eintrag["name"] }}</td>
+                <td>{{ eintrag["gruppengroesse"] }}</td>
+                <td>{{ eintrag["budget"] }}</td>
+                <td>{{ eintrag["saison"] }}</td>
+                 <td>{{ eintrag["ort"] }}</td>
+                 <td>{{ eintrag["bewegungsdrang"] }}</td>
+            </tr>
+        {% endfor %}
+    {% endif %}
 </body>
 </html>

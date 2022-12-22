@@ -27,8 +27,8 @@ def tipps_chur():
                         if ort_vorschlag == idee_daten["ort"]:
                             if bewegungsdrang_vorschlag == idee_daten["bewegungsdrang"]:
                                 vorschlaege.append(idee_daten)
-                                print(vorschlaege)
 
+        #Hier darf es die Vorschlaege nicht ausgeben, aber wenn ich es nicht hier zurückgebe funktioniert die vorschlaege,html seite nicht
         return render_template("vorschlaege.html", vorschlaege=vorschlaege)
 
     # Rendern des index.html Templates, für das Anzeigen der index.html Page.
