@@ -8,6 +8,7 @@ app = Flask("tipps_chur")
 
 @app.route('/', methods=["GET", "POST"])
 def tipps_chur():
+    vorschlaege = []
     #Felder werden von der Eingabe angenommen und die Datenbank wird geöffnet
     if request.method == "POST":
         gruppengroesse_vorschlag = request.form['Gruppengroesse']
@@ -19,7 +20,6 @@ def tipps_chur():
             ideen = json.load(datei)
 
         #eingegebene Idee wird abgeglichen mit Datenbank, welcher Vorschlag dazu passt und dann in der Liste Vorschlaege reingeschrieben
-        vorschlaege = []
         for idee_name, idee_daten in ideen.items():
             if gruppengroesse_vorschlag == idee_daten["gruppengroesse"]:
                 if budget_vorschlag == idee_daten["budget"]:
@@ -27,9 +27,9 @@ def tipps_chur():
                         if ort_vorschlag == idee_daten["ort"]:
                             if bewegungsdrang_vorschlag == idee_daten["bewegungsdrang"]:
                                 vorschlaege.append(idee_daten)
+                                print(vorschlaege)
 
-    #Hier darf es die Vorschlaege nicht ausgeben, aber wenn ich es nicht hier zurückgebe funktioniert die vorschlaege,html seite nicht
-    return render_template("vorschlaege.html", vorschlaege=vorschlaege)
+    return render_template("index.html", vorschlaege=vorschlaege)
 
 
 @app.route('/neue_idee', methods=["GET", "POST"])
@@ -79,4 +79,3 @@ def auswertung():
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
-
