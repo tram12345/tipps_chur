@@ -9,14 +9,21 @@
             {% for eintrag in vorschlaege %}
             <tr>
             <!-- Die Ideen von der Liste Vorschläge werden ausgegeben. -->
-                <td>{{ eintrag["name"] }}</td>
-                <td>{{ eintrag["gruppengroesse"] }}</td>
-                <td>{{ eintrag["budget"] }}</td>
-                <td>{{ eintrag["saison"] }}</td>
-                 <td>{{ eintrag["ort"] }}</td>
-                 <td>{{ eintrag["bewegungsdrang"] }}</td>
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">Name: {{ eintrag["name"] }}</label>
+                </div>
+                <td>Gruppengrösse: {{ eintrag["gruppengroesse"] }}</td><br>
+                <td>Budget: {{ eintrag["budget"] }}</td><br>
+                <td>Saison: {{ eintrag["saison"] }}</td><br>
+                <td>Ort: {{ eintrag["ort"] }}</td><br>
+                <td>Bewegungsdrang: {{ eintrag["bewegungsdrang"] }}</td>
+                <hr/>
             </tr>
+
         {% endfor %}
+    <button type="submit" class="btn btn-secondary">Auswahl abspeichern</button>
     {% endif %}
+
 </body>
 </html>
