@@ -8,8 +8,6 @@ app = Flask("tipps_chur")
 
 @app.route('/', methods=["GET", "POST"])
 def tipps_chur():
-    vorschlaege = []
-    #Felder werden von der Eingabe angenommen und die Datenbank wird geöffnet
     if request.method == "POST":
         gruppengroesse_vorschlag = request.form['Gruppengroesse']
         budget_vorschlag = request.form['Budget']
@@ -19,17 +17,21 @@ def tipps_chur():
         with open("datenbank_ideen.json") as datei:
             ideen = json.load(datei)
 
-        #eingegebene Idee wird abgeglichen mit Datenbank, welcher Vorschlag dazu passt und dann in der Liste Vorschlaege reingeschrieben
+        vorschlaege = []
         for idee_name, idee_daten in ideen.items():
+            print(gruppengroesse_vorschlag, idee_daten["gruppengroesse"], gruppengroesse_vorschlag == idee_daten["gruppengroesse"])
             if gruppengroesse_vorschlag == idee_daten["gruppengroesse"]:
                 if budget_vorschlag == idee_daten["budget"]:
                     if saison_vorschlag == idee_daten["saison"]:
                         if ort_vorschlag == idee_daten["ort"]:
                             if bewegungsdrang_vorschlag == idee_daten["bewegungsdrang"]:
                                 vorschlaege.append(idee_daten)
-                                print(vorschlaege)
 
-    return render_template("index.html", vorschlaege=vorschlaege)
+        #Vorschläge werden zurückgegeben und Vorschläge html wird angezeigt
+        return render_template("vorschlaege.html", vorschlaege=vorschlaege)
+
+    # Rendern des index.html Templates, für das Anzeigen der index.html Page.
+    return render_template("index.html", seitentitel="neue_idee")
 
 
 @app.route('/neue_idee', methods=["GET", "POST"])
