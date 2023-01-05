@@ -28,48 +28,19 @@ def tipps_chur():
                         if ort_vorschlag == idee_daten["ort"]:
                             if bewegungsdrang_vorschlag == idee_daten["bewegungsdrang"]:
                                 vorschlaege.append(idee_daten)
-
         #Vorschläge werden zurückgegeben und Vorschläge html wird angezeigt
         return render_template("vorschlaege.html", vorschlaege=vorschlaege)
 
     #hier die Funktion, für die Auswahl der Vorschläge abspeichern,
-    # TODO: richtig abspeichern, wenn Checkbox angeklickt ist, dann in datenbank_vorschlaege abspeichern,
-    def vorschlag_annehmen():
-        if reques.method == "POST":
-            #TODO: nur wenn Checkbox angeklickt ist, dann abspeichern
-            name = request.form.get['name']
-            gruppengroesse = request.form['gruppengroesse']
-            budget = request.form['budget']
-            saison = request.form['saison']
-            ort = request.form['ort']
-            bewegungsdrang = request.form['bewegungsdrang']
+    # TODO: Vorschlag in Liste abspeichern, wenn Checkbox angeklickt ist, dann in datenbank_vorschlaege abspeichern,
+    def abspeichern_ausgewählte_idee():
+        if request.method == "POST":
+            print("hat funktioniert")
 
-        vorschlag = {'name': name, 'gruppengroesse': gruppengroesse, 'budget': budget, 'saison': saison, 'ort': ort,
-                'bewegungsdrang': bewegungsdrang}
+    abspeichern_ausgewählte_idee()_idee()
 
-        vorschlag_abspeichern(vorschlag)
-
-    def speichern(datei, key, value):
-        try:
-            with open(datei) as open_file:
-                datei_inhalt = json.load(open_file)
-        except FileNotFoundError:
-            datei_inhalt = {}
-
-        datei_inhalt[str(key)] = value
-
-        # print(datei_inhalt)
-        with open(datei, "w") as open_file:
-            json.dump(datei_inhalt, open_file, indent=4)
-
-    def vorschlag_abspeichern(vorschlag):
-        datei_name = "datenbank_vorschlaege.json"
-        zeitpunkt = datetime.now()
-        speichern(datei_name, zeitpunkt, vorschlag)
-        return zeitpunkt, vorschlag
-
-    # Rendern des index.html Templates, für das Anzeigen der index.html Page.
     return render_template("index.html", seitentitel="neue_idee")
+
 #Code für Index Seite fertig
 
 
@@ -119,25 +90,10 @@ def aktivitaet_speichern(activity):
 def auswertung():
     div = viz()
     return render_template("auswertung.html", viz_div=div)
-def data():
-    data = px.data.gapminder()
-    data_ch = data[data.country == 'Switzerland']
-
-    return data_ch
 def viz():
-    data_ch = data()
-
-    fig = px.bar(
-        data_ch,
-        x='year', y='pop',
-        hover_data=['lifeExp', 'gdpPercap'],
-        color='lifeExp',
-        labels={
-            'pop': 'Anzahl, wie viel mal die Aktivität gemacht wurde',
-            'year': 'Aktivität'
-        },
-        height=400
-    )
+    balken = ['One', 'Two', 'Three']
+    value = [10, 50, 100]
+    fig = px.bar(x=balken,y=value, height=400, width=900)
 
     div = plot(fig, output_type="div")
     return div
