@@ -30,13 +30,51 @@ def tipps_chur():
         #Vorschläge werden zurückgegeben und Vorschläge html wird angezeigt
         return render_template("vorschlaege.html", vorschlaege=vorschlaege)
 
+    #hier die Funktion, für die Auswahl der Vorschläge abspeichern,
+    # TODO: richtig abspeichern, wenn Checkbox angeklickt ist, dann in datenbank_vorschlaege abspeichern,
+    def vorschlag_annehmen():
+        if reques.method == "POST":
+            #TODO: nur wenn Checkbox angeklickt ist, dann abspeichern
+            name = request.form.get['name']
+            gruppengroesse = request.form['gruppengroesse']
+            budget = request.form['budget']
+            saison = request.form['saison']
+            ort = request.form['ort']
+            bewegungsdrang = request.form['bewegungsdrang']
+
+        vorschlag = {'name': name, 'gruppengroesse': gruppengroesse, 'budget': budget, 'saison': saison, 'ort': ort,
+                'bewegungsdrang': bewegungsdrang}
+
+        vorschlag_abspeichern(vorschlag)
+
+    def speichern(datei, key, value):
+        try:
+            with open(datei) as open_file:
+                datei_inhalt = json.load(open_file)
+        except FileNotFoundError:
+            datei_inhalt = {}
+
+        datei_inhalt[str(key)] = value
+
+        # print(datei_inhalt)
+        with open(datei, "w") as open_file:
+            json.dump(datei_inhalt, open_file, indent=4)
+
+    def vorschlag_abspeichern(vorschlag):
+        datei_name = "datenbank_vorschlaege.json"
+        zeitpunkt = datetime.now()
+        speichern(datei_name, zeitpunkt, vorschlag)
+        return zeitpunkt, vorschlag
+
     # Rendern des index.html Templates, für das Anzeigen der index.html Page.
     return render_template("index.html", seitentitel="neue_idee")
+#Code für Index Seite fertig
 
 
+
+#ab hier Code für Seite neue Idee
 @app.route('/neue_idee', methods=["GET", "POST"])
 def neue_idee():
-    # Rendern des index.html Templates, für das Anzeigen der index.html Page.
     # neue Idee annehmen und dann in Datenbank abspeichern
     if request.method == "POST":
         name = request.form.get('name')
