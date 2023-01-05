@@ -2,6 +2,8 @@ from flask import Flask
 from flask import render_template, url_for
 from flask import request
 from datetime import datetime
+import plotly.express as px
+from plotly.offline import plot
 import json
 
 app = Flask("tipps_chur")
@@ -109,13 +111,38 @@ def aktivitaet_speichern(activity):
     zeitpunkt = datetime.now()
     speichern(datei_name, zeitpunkt, activity)
     return zeitpunkt, activity
+#Code Seite neue Aktivität erfassen fertig
 
-
-
+#ab hier Code für Seite Auswertung
 @app.route('/auswertung', methods=["GET", "POST"])
-def auswertung():
-    return render_template("auswertung.html")
 
+def auswertung():
+    div = viz()
+    return render_template("auswertung.html", viz_div=div)
+def data():
+    data = px.data.gapminder()
+    data_ch = data[data.country == 'Switzerland']
+
+    return data_ch
+def viz():
+    data_ch = data()
+
+    fig = px.bar(
+        data_ch,
+        x='year', y='pop',
+        hover_data=['lifeExp', 'gdpPercap'],
+        color='lifeExp',
+        labels={
+            'pop': 'Anzahl, wie viel mal die Aktivität gemacht wurde',
+            'year': 'Aktivität'
+        },
+        height=400
+    )
+
+    div = plot(fig, output_type="div")
+    return div
+
+#Code Seite Auswertungfertig
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000)

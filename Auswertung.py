@@ -1,9 +1,6 @@
 import plotly.express as px
 
+animals=['giraffes', 'orangutans', 'monkeys']
 
-data = px.data.gapminder()
-data_ch = data[data.country == 'Switzerland']
-fig = px.bar(data_ch, x='year', y='pop',
-             hover_data=['lifeExp', 'gdpPercap'], color='lifeExp',
-             labels={'pop': 'Einwohner der Schweiz', 'year': 'Jahrzehnt'}, height=400)
+fig = go.Figure([go.Bar(x=animals, y=[20, 14, 23])])
 fig.show()
