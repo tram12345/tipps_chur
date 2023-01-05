@@ -37,7 +37,7 @@ def tipps_chur():
         if request.method == "POST":
             print("hat funktioniert")
 
-    abspeichern_ausgewählte_idee()_idee()
+    abspeichern_ausgewählte_idee()
 
     return render_template("index.html", seitentitel="neue_idee")
 
