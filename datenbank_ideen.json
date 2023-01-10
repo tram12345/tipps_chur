@@ -29,7 +29,7 @@
         "budget": "20 - 100 CHF",
         "saison": "egal",
         "ort": "drinnen",
-        "bewegungsdrang": "nicht n\u00c3\u00b6tig"
+        "bewegungsdrang": "wenig"
     },
     "Konzerte Werkstatt Chur": {
         "name": "Konzerte Werkstatt Chur",
@@ -77,22 +77,6 @@
         "budget": "0 - 20 CHF",
         "saison": "egal",
         "ort": "drinnen",
-        "bewegungsdrang": "nicht n\u00c3\u00b6tig"
-    },
-    "Wanderung Montalin": {
-        "name": "Wanderung Montalin",
-        "gruppengroesse": "1-4",
-        "budget": "0 - 20 CHF",
-        "saison": "Fr\u00c3\u00bchling",
-        "ort": "draussen",
-        "bewegungsdrang": "extrem"
-    },
-    "2022-12-10 11:11:42.835923": {
-        "name": "Schlitteln",
-        "gruppengroesse": "1",
-        "budget": "3",
-        "saison": "3",
-        "ort": "2",
-        "bewegungsdrang": "1"
+        "bewegungsdrang": "wenig"
     }
 }

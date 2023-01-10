@@ -45,7 +45,7 @@ def vorschlaege():
         activity_getan = {'name': gemachter_vorschlag}
         activity_getan_speichern(activity_getan)
 
-    return "Vorschlag wurde abgespeichert"
+    return render_template("abgespeichert_vorschlag.html")
 def activity_getan_speichern(activity_getan):
     datei_name = "datenbank_vorschlaege.json"
     zeitpunkt = datetime.now()
