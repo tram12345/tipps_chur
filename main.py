@@ -4,6 +4,7 @@ from flask import request
 from datetime import datetime
 import plotly.express as px
 from plotly.offline import plot
+import plotly
 import json
 
 app = Flask("tipps_chur")
@@ -98,13 +99,35 @@ def auswertung():
     return render_template("auswertung.html", viz_div=div)
 def viz():
     #hier Datenbank öffnen und umwandeln, damit ich diese in Balkendiagramm aufzeichnen kann
-    balken = ['One', 'Two', 'Three']
-    value = [10, 50, 100]
-    fig = px.bar(x=balken,y=value, height=400, width=900)
+    auswertung_gespeichert = aktivitaeten_gespeichert_oeffnen()
+    counts = {}
+    for _, eintrag in auswertung_gespeichert.items():
+        items = eintrag.get('name')
+        for item in items:
+           if item in counts:
+               counts[item]+=1
+           else:
+               counts[item]=1
 
-    div = plot(fig, output_type="div")
-    return div
+    # Grafik wird mit Variabel x als x-Wert und y als y-Wert erstellt.
+    # counts = {'Wandern Calanda': 2, 'Wandern xyz': 10}
 
+    fig = px.bar(x=list(counts.keys()), y=list(counts.values()))
+    # Mit plotly.io.to_html wird die Grafik als div angezeigt.
+    div = plotly.io.to_html(fig, include_plotlyjs=True, full_html=False)
+
+    # Analyse.html wird gerendert, div wird mitgegeben.
+    return render_template('auswertung.html', viz_div=div)
+
+def aktivitaeten_gespeichert_oeffnen():
+    try:
+        with open('datenbank_vorschlaege.json', 'r', encoding='utf-8') as datenbank_vorschlaege:
+            # Inhalt der Datenbank wird als Dictonary vorschlaege_gespeichert gespeichert.
+            vorschlaege_gespeichert = json.load(datenbank_vorschlaege)
+    except:
+        vorschlaege_gespeichert = {}
+
+    return vorschlaege_gespeichert
 #Code Seite Auswertungfertig
 
 if __name__ == "__main__":
