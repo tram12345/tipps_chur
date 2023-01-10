@@ -19,9 +19,9 @@ Ebenfalls werden alle bisher getätigten Aktivitäten mit einem Balkendiagramm d
 
 ## 2 Betrieb
  - Was muss man bei der Ausführung beachten. Was muss eventuell davor noch gemacht werden.
-Bei der Ausführung muss auf nichts spezielles geachtet werden. 
+Es müssen Flask und Plotly importiert werden. 
  - Welch Datei muss ausgeführt werden
-die main-Python Datei muss ausgeführt werden. 
+Die main-Python Datei muss ausgeführt werden. 
 
 ## 3 Benutzung
 - Wie wird das Projekt benutzt
