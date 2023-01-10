@@ -31,19 +31,26 @@ def tipps_chur():
         #Vorschläge werden zurückgegeben und Vorschläge html wird angezeigt
         return render_template("vorschlaege.html", vorschlaege=vorschlaege)
 
-    #hier die Funktion, für die Auswahl der Vorschläge abspeichern,
-    # TODO: Vorschlag in Liste abspeichern, wenn Checkbox angeklickt ist, dann in datenbank_vorschlaege abspeichern,
-    def abspeichern_ausgewählte_idee():
-        if request.method == "POST":
-            print("hat funktioniert")
-
-    abspeichern_ausgewählte_idee()
-
     return render_template("index.html", seitentitel="neue_idee")
 
 #Code für Index Seite fertig
 
 
+@app.route("/vorschlaege", methods=["GET", "POST"])
+def vorschlaege():
+    if request.method == "POST":
+        ##hier Vorschlag in DIC abspeichern, wenn Wert vorhanden ist, dann Anzahl +1, wenn Wert nicht vorhanden ist, dann = neuer Eintrag
+        gemachter_vorschlag = request.form['name']
+        print(gemachter_vorschlag)
+        # activity_getan = {'name': gemachter_vorschlag}
+        # activity_getan_speichern(activity_getan)
+
+    return "Vorschlag wurde abgespeichert"
+def activity_getan_speichern(activity_getan):
+    datei_name = "datenbank_vorschlaege.json"
+    zeitpunkt = datetime.now()
+    speichern(datei_name, zeitpunkt, activity_getan)
+    return zeitpunkt, activity_getan
 
 #ab hier Code für Seite neue Idee
 @app.route('/neue_idee', methods=["GET", "POST"])

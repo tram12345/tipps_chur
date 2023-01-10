@@ -1,18 +1,22 @@
 {% include "Navigation.html" %}
-    {% if vorschlaege == [] %}
-        <p>Leider gibt es für dich keine passende Vorschläge. Möchtest du eine neue Idee erfassen?</p>
-        <a href="neue_idee">Hier kannst du deine neue Idee erfassen.</a>
-    {% else %}
-            <p>Hier findest du deinen passenden Vorschlag:</p>
-            {% for eintrag in vorschlaege %}
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked>
-                    <label class="form-check-label" for="firstRadio">{{ eintrag["name"] }}</label>
-                </li>
+{% if vorschlaege == [] %}
+<p>Leider gibt es für dich keine passende Vorschläge. Möchtest du eine neue Idee erfassen?</p>
+<a href="neue_idee">Hier kannst du deine neue Idee erfassen.</a>
+{% else %}
+<p>Hier findest du deinen passenden Vorschlag:</p>
+<form method="POST" action="{{ url_for('vorschlaege') }}">
+    <ul class="list-group">
+        {% for eintrag in vorschlaege %}
+        <li class="list-group-item">
+            <input class="form-check-input me-1" type="radio" name="" value="" id="firstRadio" checked>
+            <label class="form-check-label" name="name" for="firstRadio">{{ eintrag["name"] }}</label>
+        </li>
         {% endfor %}
+    </ul>
     <button type="submit" class="btn btn-secondary">Auswahl abspeichern</button>
-    {% endif %}
+
+</form>
+{% endif %}
 
 </body>
 {% include "footer.html" %}
