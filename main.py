@@ -40,10 +40,9 @@ def tipps_chur():
 def vorschlaege():
     if request.method == "POST":
         ##hier Vorschlag in DIC abspeichern, wenn Wert vorhanden ist, dann Anzahl +1, wenn Wert nicht vorhanden ist, dann = neuer Eintrag
-        gemachter_vorschlag = request.form['name']
-        print(gemachter_vorschlag)
-        # activity_getan = {'name': gemachter_vorschlag}
-        # activity_getan_speichern(activity_getan)
+        gemachter_vorschlag = request.form.getlist('name')
+        activity_getan = {'name': gemachter_vorschlag}
+        activity_getan_speichern(activity_getan)
 
     return "Vorschlag wurde abgespeichert"
 def activity_getan_speichern(activity_getan):
@@ -72,7 +71,7 @@ def neue_idee():
 
 def speichern(datei, key, value):
     try:
-        with open(datei) as open_file:
+        with open(datei, "r") as open_file:
             datei_inhalt = json.load(open_file)
     except FileNotFoundError:
         datei_inhalt = {}
@@ -98,6 +97,7 @@ def auswertung():
     div = viz()
     return render_template("auswertung.html", viz_div=div)
 def viz():
+    #hier Datenbank öffnen und umwandeln, damit ich diese in Balkendiagramm aufzeichnen kann
     balken = ['One', 'Two', 'Three']
     value = [10, 50, 100]
     fig = px.bar(x=balken,y=value, height=400, width=900)

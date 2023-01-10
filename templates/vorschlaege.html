@@ -8,8 +8,10 @@
     <ul class="list-group">
         {% for eintrag in vorschlaege %}
         <li class="list-group-item">
-            <input class="form-check-input me-1" type="radio" name="" value="" id="firstRadio" checked>
-            <label class="form-check-label" name="name" for="firstRadio">{{ eintrag["name"] }}</label>
+            <label>
+            <input class="form-check-input me-1" type="checkbox" name="name" value="{{ eintrag.name }}" id="name">
+                {{ eintrag.name }}
+                </label>
         </li>
         {% endfor %}
     </ul>
