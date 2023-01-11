@@ -132,6 +132,7 @@ def aktivitaeten_gespeichert_oeffnen():
 #allgemeine speichern Funktion, um die Einträge in den Datenbanken abzuspeichern
 def speichern(datei, key, value):
     try:
+    #Datei wird probiert zum Öffnen wenn nicht klapp dann wird ein leerer Datei Inhalt reingeschrieben
         with open(datei, "r") as open_file:
             datei_inhalt = json.load(open_file)
     except FileNotFoundError:
@@ -139,7 +140,7 @@ def speichern(datei, key, value):
 
     datei_inhalt[str(key)] = value
 
-    # print(datei_inhalt)
+    #print(datei_inhalt)
     with open(datei, "w") as open_file:
         json.dump(datei_inhalt, open_file, indent=4)
 
