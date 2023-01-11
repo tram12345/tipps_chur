@@ -71,12 +71,20 @@
         "ort": "draussen",
         "bewegungsdrang": "vorhanden"
     },
-    "B\u00c3\u00bcndner Kunstmuseum": {
-        "name": "Bndner Kunstmuseum",
+    "Kunstmuseum Chur": {
+        "name": "Kunstmuseum Chur",
         "gruppengroesse": "1-4",
         "budget": "0 - 20 CHF",
         "saison": "egal",
         "ort": "drinnen",
         "bewegungsdrang": "wenig"
+    },
+    "2023-01-11 09:13:19.725082": {
+        "name": "Fr\u00fchling Aktiv",
+        "gruppengroesse": "1-4",
+        "budget": "0 - 20 CHF",
+        "saison": "Fr\u00fchling",
+        "ort": "drinnen",
+        "bewegungsdrang": "extrem"
     }
 }
