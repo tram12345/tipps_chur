@@ -87,27 +87,23 @@ def aktivitaet_speichern(activity):
 
 #ab hier Code für Seite "Auswertung"
 @app.route('/auswertung', methods=["GET", "POST"])
-
 def auswertung():
-    div = viz()
-    return render_template("auswertung.html", viz_div=div)
-def viz():
-    #hier wird die Funktion um die Datenbank zu öffnen, ausgeführt und umwandeln, damit ich diese in Balkendiagramm aufzeichnen kann
+    # hier wird die Funktion um die Datenbank zu öffnen, ausgeführt und umwandeln, damit ich diese in Balkendiagramm aufzeichnen kann
     auswertung_gespeichert = aktivitaeten_gespeichert_oeffnen()
-    #leeres Dictionary erstellen
+    # leeres Dictionary erstellen
     counts = {}
-    #for-loop für alle values
+    # for-loop für alle values
     for _, eintrag in auswertung_gespeichert.items():
-        #name wird genommen und als items überprüft
+        # name wird genommen und als items überprüft
         items = eintrag.get('name')
-        #for loop für alle items
+        # for loop für alle items
         for item in items:
-            #wenn item schon in counts ist, dann wird die Anzahl um eins erhöht
-           if item in counts:
-               counts[item]+=1
-            #wenn es item noch nicht gibt, dann wird das item hinzugefügt und die Anzahl ist eins
-           else:
-               counts[item]=1
+            # wenn item schon in counts ist, dann wird die Anzahl um eins erhöht
+            if item in counts:
+                counts[item] += 1
+            # wenn es item noch nicht gibt, dann wird das item hinzugefügt und die Anzahl ist eins
+            else:
+                counts[item] = 1
 
     # counts Liste sieht so aus und diese werden dann gezählt
     # counts = {'Wandern Calanda': 2, 'Wandern xyz': 10}
@@ -117,6 +113,7 @@ def viz():
 
     # Analyse.html wird gerendert, div wird mitgegeben.
     return render_template('auswertung.html', viz_div=div)
+
 
 #hier wird die Datei mit den gespeicherten Aktivitäten geöffnet
 def aktivitaeten_gespeichert_oeffnen():
