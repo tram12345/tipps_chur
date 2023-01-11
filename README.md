@@ -29,7 +29,7 @@ Es besteht die Option, ein Vorschlag zu generieren, eine neue Aktivität zu erfa
 
 
 ## 4 Architektur
-<img src="C:\Users\tamar\OneDrive - Jansen AG\FHGR-DESKTOP-KU2T1ET\3. Semester\RPOG2\tipps_chur\images\ablaufdiagramm.drawio.png"/>
+![Ablaufdiagramm](../master/images/ablaufdiagramm.png)
 
 ## 5 Ungelöste/unbearbeitete Probleme
 Es wurde nicht gelöst, dass die Aktivitäten mit Kommentar und Bewertung in einem Dictionary abgespeichert werden. 
