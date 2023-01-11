@@ -18,17 +18,14 @@ Ebenfalls werden alle bisher getätigten Aktivitäten mit einem Balkendiagramm d
 
 
 ## 2 Betrieb
- - Was muss man bei der Ausführung beachten. Was muss eventuell davor noch gemacht werden.
-Es müssen Flask und Plotly importiert werden. 
- - Welch Datei muss ausgeführt werden
-Die main-Python Datei muss ausgeführt werden. 
+Als erstes muss mithilfe der Ausführung des Codes (main Python Datei) Flask und Plotly importiert werden. 
+Ansonsten muss bei der Ausführung des Codes auf nichts besonderes geachtet werden. 
 
 ## 3 Benutzung
-- Wie wird das Projekt benutzt
 Das Projekt wird genutzt indem man die einzelnen Kriterien auswählt und ein Vorschlag dann generiert wird.
 Diese Vorschläge werden dann, wenn sie ausgewählt werden, abgepseichert und ausgewertet.
 Findet man keine passende Vorschläge hat man die Möglichkeit eine neue Aktivität hinzufügen. 
-- Welche Optionen oder auch Spezialitäten existieren
+Es besteht die Option ein Vorschlag zu generieren, eine neue Aktivität zu erfassen und eine Auswertung der bereits getätigten Aktivitäten anzuschauen.
 
 
 ## 4 Architektur
@@ -36,7 +33,5 @@ Findet man keine passende Vorschläge hat man die Möglichkeit eine neue Aktivit
 <img src="C:\Users\tamar\OneDrive - Jansen AG\FHGR-DESKTOP-KU2T1ET\3. Semester\RPOG2\tipps_chur\images\ablaufdiagramm.drawio.png"/>
 
 ## 5 Ungelöste/unbearbeitete Probleme
- - Was wurde nicht gelöst
 Es wurde nicht gelöst, dass die Aktivitäten mit Kommentar und Bewertung in einem Dictionary abgespeichert werden. 
- - Welche Verbesserungen könnten noch gemacht werden.
 Man könnte sicher das Design noch verschöndern und eventuell die Akvitiäten um weitere Kriterien ergänzen. 
