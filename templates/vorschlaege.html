@@ -1,4 +1,6 @@
 {% include "Navigation.html" %}
+<!-- wenn in Vorschläge kein passender Eintrag, dann Weiterleitung auf Seite "neue Idee erfassen" ansonsten werden die
+passenden Vorschläge angezeigt-->
 {% if vorschlaege == [] %}
 <p>Leider gibt es für dich keine passende Vorschläge. Möchtest du eine neue Idee erfassen?</p>
 <a href="neue_idee">Hier kannst du deine neue Idee erfassen.</a>

@@ -8,21 +8,21 @@ import json
 
 app = Flask("tipps_chur")
 
-#hier startet der Code für die Seite "Ideenvorschläge generieren"
+#ab hier Code für Seite "Ideenvorschläge generieren"
 @app.route('/', methods=["GET", "POST"])
 def tipps_chur():
-    #Code nimmt hier die Einträge der Eingabefelder entgegen
+    #Code nimmt hier die Einträge der Eingabefelder entgegen und diese werden in Variablen umgewandelt
     if request.method == "POST":
         gruppengroesse_vorschlag = request.form['Gruppengroesse']
         budget_vorschlag = request.form['Budget']
         saison_vorschlag = request.form['Saison']
         ort_vorschlag = request.form['Ort']
         bewegungsdrang_vorschlag = request.form['Bewegungsdrang']
-        #Datenbank wird geöffnet und in ideen abgespeichert
+        #Datenbank wird geöffnet und Inhalt wird in ideen abgespeichert
         with open("datenbank_ideen.json") as datei:
             ideen = json.load(datei)
 
-        #hier wird überprüft, welche Aktivitäten zur Idee passen und eine leere Liste Vorschläge wird generiert
+        #hier wird überprüft, welche Aktivitäten zur Idee passen, aber zuerst wird eine leere Liste Vorschläge erstellt
         vorschlaege = []
         for idee_name, idee_daten in ideen.items():
              if gruppengroesse_vorschlag == idee_daten["gruppengroesse"]:
@@ -30,25 +30,25 @@ def tipps_chur():
                     if saison_vorschlag == idee_daten["saison"]:
                         if ort_vorschlag == idee_daten["ort"]:
                             if bewegungsdrang_vorschlag == idee_daten["bewegungsdrang"]:
-                                #nach der Überprüfung werden die Felder in die Vorschläge Liste hinzugefügt
+                                #nach der Überprüfung werden die übereinstimmenden Felder in die  Liste Vorschläge hinzugefügt
                                 vorschlaege.append(idee_daten)
-        #Vorschläge werden zurückgegeben und Vorschläge html wird angezeigt
+        #vorschlaege wird zurückgegeben und Vorschläge html wird angezeigt
         return render_template("vorschlaege.html", vorschlaege=vorschlaege)
 
-    #index html wird zurückgegeben
+    #index_html wird zurückgegeben
     return render_template("index.html", seitentitel="neue_idee")
-
 #Code für Seite "Ideenvorschläge generieren" fertig
+
 
 #ab hier Code für Seite "Vorschläge"
 @app.route("/vorschlaege", methods=["GET", "POST"])
 def vorschlaege():
     if request.method == "POST":
-        #angeklickter Vorschlag wird zurückgegeben und wird mithilfe der Funktin abgespeichert
+        #angeklickter Vorschlag wird zurückgegeben und wird mithilfe der Funktion abgespeichert
         gemachter_vorschlag = request.form.getlist('name')
         activity_getan = {'name': gemachter_vorschlag}
         activity_getan_speichern(activity_getan)
-    #abgespeichert vorschlag wird zurückgegeben
+    #abgespeichert_vorschlag HTML wird angezeigt
     return render_template("abgespeichert_vorschlag.html")
 
 #Funktion um den angeklickten Vorschlag in der Datenbank abzuspeichern
@@ -70,9 +70,9 @@ def neue_idee():
         saison = request.form.get('Saison')
         ort = request.form.get('Ort')
         bewegungsdrang = request.form.get('Bewegungsdrang')
-
+        #Felder werden in ein Dictionary umgewandelt
         activity = {'name': name, 'gruppengroesse': gruppengroesse, 'budget': budget, 'saison': saison, 'ort': ort, 'bewegungsdrang': bewegungsdrang}
-
+        #Funktion aktivitaet_speichern wird ausgeführt
         aktivitaet_speichern(activity)
     #neue Idee HTML wird zurückgegeben
     return render_template("neue_idee.html")
@@ -83,35 +83,35 @@ def aktivitaet_speichern(activity):
     zeitpunkt = datetime.now()
     speichern(datei_name, zeitpunkt, activity)
     return zeitpunkt, activity
-#Code Seite neue Idee erfassen fertig
+#Code Seite "neue Idee erfassen" fertig
 
 #ab hier Code für Seite "Auswertung"
 @app.route('/auswertung', methods=["GET", "POST"])
 def auswertung():
-    # hier wird die Funktion um die Datenbank zu öffnen, ausgeführt und umwandeln, damit ich diese in Balkendiagramm aufzeichnen kann
+    # hier wird die Funktion um die Datenbank zu öffnen, ausgeführt und die Daten werden umgewandelt, damit diese in einem Balkendiagramm aufgezeichnet werden
     auswertung_gespeichert = aktivitaeten_gespeichert_oeffnen()
-    # leeres Dictionary erstellen
+    # leeres Dictionary wird erstellt
     counts = {}
     # for-loop für alle values
     for _, eintrag in auswertung_gespeichert.items():
-        # name wird genommen und als items überprüft
+        #name der Aktivität wird genommen und in Variable items umgewandelt
         items = eintrag.get('name')
-        # for loop für alle items
+        #for loop für alle items wird ausgeführt
         for item in items:
-            # wenn item schon in counts ist, dann wird die Anzahl um eins erhöht
+            #wenn item schon in counts ist, dann wird die Anzahl des items um eins erhöht
             if item in counts:
                 counts[item] += 1
-            # wenn es item noch nicht gibt, dann wird das item hinzugefügt und die Anzahl ist eins
+            #wenn es das item noch nicht gibt, dann wird das item hinzugefügt und die Anzahl ist eins
             else:
                 counts[item] = 1
 
-    # counts Liste sieht so aus und diese werden dann gezählt
-    # counts = {'Wandern Calanda': 2, 'Wandern xyz': 10}
+    #counts Liste sieht so aus und diese werden dann in Balkendiagramm angezeigt
+    #counts = {'Wandern Calanda': 2, 'Wandern xyz': 10}
     fig = px.bar(x=list(counts.keys()), y=list(counts.values()))
-    # Mit plotly.io.to_html wird die Grafik als div angezeigt.
+    #mit plotly.io.to_html wird die Grafik als div angezeigt.
     div = plotly.io.to_html(fig, include_plotlyjs=True, full_html=False)
 
-    # Analyse.html wird gerendert, div wird mitgegeben.
+    #auswertung HTML wird angezeigt und div wird mitgegeben.
     return render_template('auswertung.html', viz_div=div)
 
 
@@ -119,17 +119,17 @@ def auswertung():
 def aktivitaeten_gespeichert_oeffnen():
     try:
         with open('datenbank_vorschlaege.json', 'r', encoding='utf-8') as datenbank_vorschlaege:
-            # Inhalt der Datenbank wird als Dictionary datenbank_vorschlaege gespeichert.
+            #Inhalt der Datenbank wird als Dictionary datenbank_vorschlaege gespeichert.
             vorschlaege_gespeichert = json.load(datenbank_vorschlaege)
     except:
-        # wenn kein Eintrag, wird es als leeres Dictionary gespeichert
+        #wenn kein Eintrag, wird es als leeres Dictionary gespeichert
         vorschlaege_gespeichert = {}
 
     return vorschlaege_gespeichert
 #Code Seite Auswertung fertig
 
 
-#allgemeine speichern Funktion um die Einträge in den Datenbanken abzuspeichern
+#allgemeine speichern Funktion, um die Einträge in den Datenbanken abzuspeichern
 def speichern(datei, key, value):
     try:
         with open(datei, "r") as open_file:
