@@ -108,6 +108,8 @@ def auswertung():
     #counts Liste sieht so aus und diese werden dann in Balkendiagramm angezeigt
     #counts = {'Wandern Calanda': 2, 'Wandern xyz': 10}
     fig = px.bar(x=list(counts.keys()), y=list(counts.values()))
+    fig.update_xaxes(title_text="Titel der Aktivität")
+    fig.update_yaxes(title_text="Anzahl der Aktivität")
     #mit plotly.io.to_html wird die Grafik als div angezeigt.
     div = plotly.io.to_html(fig, include_plotlyjs=True, full_html=False)
 
